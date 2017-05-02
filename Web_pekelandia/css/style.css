@@ -5,10 +5,10 @@ body {
 	font: 14px/22px Georgia, "Times New Roman", Times, serif;
 	color:#838180;
 	min-width:1000px;
-	background: #000000;
+	background: url(../images/fondo_bajo.png);
 }
 .ic {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:0 10000% 0 0;overflow:hidden;padding:0}
-.main {width:100%; background:url(../images/bg.jpg) center 0 no-repeat;}
+.main {width:100%; background:url(../images/fondo_up.png) center 0 no-repeat;}
 /***********************************************************************/
 a {text-decoration:none; cursor:pointer;text-decoration:none; }
 a:hover {text-decoration:none;}
@@ -82,7 +82,7 @@ ul.list-2 li a:hover {color:#0072ff;}
 .p7 {padding-bottom:12px;}
 
 /*********************************header*************************************/
-header {width:1000px; margin:0 auto; z-index:101; background:url(../images/header.jpg) right 0 no-repeat; }
+header {width:1000px; margin:0 auto; z-index:101;  }
 
 h1 {margin:27px 0 0 63px; display:inline-block; z-index:100;}
 
