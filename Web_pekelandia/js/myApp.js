@@ -4,14 +4,42 @@ app.config (function($routeProvider ,$provide){
    //$locationProvider.html5Mode(true);
     $routeProvider.when("/inicio",{templateUrl:"datos/test.html"});
     $routeProvider.when("/mostrarnoticias",{templateUrl:"datos/codigo.html", controller:'mostrarController'});
-    $routeProvider.when("/vision",{templateUrl:"datos/vision_mision.html", controller:'mostrarController'});
-    $routeProvider.when("/principios",{templateUrl:"datos/principios.html", controller:'mostrarController'});
-    $routeProvider.when("/perfiles",{templateUrl:"datos/perfiles.html", controller:'mostrarController'});
-    $routeProvider.when("/perfiles_doc",{templateUrl:"datos/perfiles_docentes.html", controller:'mostrarController'});
+    $routeProvider.when("/vision",{templateUrl:"datos/vision_mision.html", controller:'matriculaController'});
+    $routeProvider.when("/principios",{templateUrl:"datos/principios.html", controller:'matriculaController'});
+    $routeProvider.when("/perfiles",{templateUrl:"datos/perfiles.html", controller:'matriculaController'});
+    $routeProvider.when("/perfiles_doc",{templateUrl:"datos/perfiles_docentes.html", controller:'matriculaController'});
     $routeProvider.when("/matricula_activa",{templateUrl:"datos/activada_matricula.html", controller:'matriculaController'});
     $routeProvider.when("/matricula_desactivada",{templateUrl:"datos/desactivada_matricula.html", controller:'matriculaController'});
     $routeProvider.when("/matricula_primera",{templateUrl:"datos/matricula_primera_vez.html", controller:'matriculaController'});
-    $routeProvider.when("/matricula_antigua",{templateUrl:"datos/matricula_antigua.html", controller:'matriculaController'});
+    $routeProvider.when("/matricula_antigua",{templateUrl:"datos/matricula_antigua.html", controller:'mostrarController'});
+});
+
+app.factory('comun', function ($http,$q) {
+
+    var comun = {};
+
+    comun.estudiante = {};
+
+
+    //seccionmetodos remotos
+
+     comun.getAll = function (objeto) {
+
+        
+           
+                angular.copy(objeto, comun.estudiante);
+
+          
+    };
+
+
+    return comun;
+
+
+
+
+
+
 });
 
 app.controller('noticiasController', function($scope, $http, $rootScope, $location,$localStorage){
@@ -22,6 +50,15 @@ app.controller('noticiasController', function($scope, $http, $rootScope, $locati
 
           $scope.inicializar = function () {
 
+          	$http.get("php/consulta.php")
+            .then(function (response) {
+
+                $scope.listNoticias = response.data;
+          
+            }, function errorCallback(response) {
+            
+                console.log(response);
+            });
 
           	window.location="#/inicio";
 
@@ -36,15 +73,7 @@ app.controller('noticiasController', function($scope, $http, $rootScope, $locati
          
     }
 
-            $http.get("php/consulta.php")
-            .then(function (response) {
-
-                $scope.listNoticias = response.data;
-          
-            }, function errorCallback(response) {
             
-                console.log(response);
-            });
 
 
 
@@ -92,7 +121,7 @@ app.controller('noticiasController', function($scope, $http, $rootScope, $locati
    
 	});
 
-app.controller('matriculaController', function($scope, $http, $rootScope, $location,$localStorage){
+app.controller('matriculaController', function($scope, $http, $rootScope, $location,$localStorage,comun){
 
 	
           $scope.noticia_act;  
@@ -251,33 +280,32 @@ app.controller('matriculaController', function($scope, $http, $rootScope, $locat
  $scope.consultar_cedula = function () {
 
  	var op = $('#cedula_con').val();
- 	console.log(op);
+ 	//console.log(op);
  	$.ajax({
 
 		url:"php/consultar_cedula.php",
 		success:function(result) //devuelve el resultado desde php
 		{
-			//alert(result); 
-			if (result =="true")
+			console.log(result);
+			if (result != false)
 			{
 
 				
+				
+
+				comun.getAll (JSON.parse(result));
+				console.log(result);
 				window.location="#/matricula_antigua"
 				alert("El Usuario ya se encuentra registrado");
 				
 			}
-			if(result =="false")
+			else
 			{
 				window.location="#/matricula_primera";
 				alert("El usuario no se encuentra en la base de datos");
-				;
-				
 			}
-			if((result != "true")&&(result !="false"))
-			{
-				$("#mensaje").html("<div style = 'background:red' class='text-1'> No se a registrado correctamente el usuario</div>");
-				alert("Error en la base de datos, No se ingreso el usuario");
-			}
+			
+			
 			
 		},
 		data:{ 
@@ -288,23 +316,19 @@ app.controller('matriculaController', function($scope, $http, $rootScope, $locat
 		type:"GET"
 	});
 
-
- 	
-
+     }
 
 
- }
-
-		
-   
-	});
+			});
 
 
-app.controller('mostrarController', function($scope, $http, $rootScope, $location,$localStorage){
+app.controller('mostrarController', function($scope, $http, $rootScope, $location,$localStorage,comun){
 
 	       	 
 		
 		$scope.Noticia=  JSON.parse(localStorage.getItem("noticia"));
+		$scope.estudiante = comun.estudiante;
+		console.log($scope.estudiante);
 		
 		
 	

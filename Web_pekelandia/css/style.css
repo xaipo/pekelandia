@@ -3,9 +3,9 @@ html, body {width:100%; padding:0; margin:0;}
 
 body { 	 
 	font: 14px/22px Georgia, "Times New Roman", Times, serif;
-	color:#838180;
-	min-width:1000px;
-	background: url(../images/fondo_bajo.png);
+	color:#000;
+	//min-width:1000px;
+	background: url(../images/fondo_bajo.png) no-repeat;
 }
 .ic {border:0;float:right;background:#fff;color:#f00;width:50%;line-height:10px;font-size:10px;margin:0 10000% 0 0;overflow:hidden;padding:0}
 .main {width:100%; background:url(../images/fondo_up.png) center 0 no-repeat;}
@@ -29,9 +29,13 @@ a:hover {text-decoration:none;}
 .clr-6 { color:#000; font-size: 40px !important}
 .clr-7 { color:#fff; font-size: 40px !important}
 .clr-8 { color:#000; font-size: 20px !important}
+.clr-9 { color:#F60F19; font-size: 40px !important}
+.clr-10 { color:#F39C12; font-size: 40px !important}
 
 .text-1 {font-size:18px; line-height:25px; color:#fff; font-style:italic;}
 .text-2 {font-size:16px; line-height:25px; color:#000; font-style:italic;}
+.text-3 {font-size:16px; line-height:25px; color:#2E86C1; font-style:italic;}
+.text-4 {font-size:16px; line-height:25px; color:#27AE60; font-style:italic;}
 
 h2 { font-size:40px; line-height:50px; color:#fff; font-weight:bold; font-family: 'Cabin Sketch', cursive; letter-spacing:-1px;}
 
@@ -81,6 +85,7 @@ ul.list-2 li a:hover {color:#0072ff;}
 .p6 {padding-bottom:5px;}
 .p7 {padding-bottom:12px;}
 
+
 /*********************************header*************************************/
 header {width:1000px; margin:0 auto; z-index:101;  }
 
@@ -98,7 +103,10 @@ ul.menu li:hover a , ul.menu li.current a { color:#000;}
 .art {background:url(../images/art.png) 0 0 no-repeat; width:320px; height:159px; margin:0 0 0 -30px;}
 
 .block-1 {background: url(../images/block-1.gif) 0 bottom repeat-x #fff;}
-.block-1-shadow {background:url(../images/block-1-shadow.png) 0 0 repeat-y; padding:18px 30px 0 30px;}
+.block-1-shadow {background:url(../images/paper.png) 0 0 repeat-y; padding:18px 30px 0 30px;}
+.block-2-shadow {background:url(../images/pepito2.png) 0 0 no-repeat; padding:18px 30px 0 30px;}
+.block-3-shadow {background:url(../images/block-1-shadow.png) 0 0 repeat-y; padding:18px 30px 0 30px;}
+.block-4-shadow {background:url(../images/fondoverde3.jpg) 0 0 repeat-y; padding:18px 30px 0 30px;}
 
 .img-border {border:#fff 10px solid; box-shadow: 0 0 5px #c1c1c1; display:inline-block;}
 .box-1 {float:left; margin-right:20px;}
@@ -121,11 +129,11 @@ ul.menu li:hover a , ul.menu li.current a { color:#000;}
 footer { width:100%; position:relative; overflow:hidden; text-align:center; padding:33px 0 30px 0;}
 
 /**********************form**********************/
-.map {width:250px; height:164px; border:#fff 10px solid; background:#fff; margin-top:8px; }
+.map {width:258px; height:170px; border:#2874A6 3px solid; background:#fff; margin-top:8px; }
 .map iframe {width:250px; height:164px; }
 dl {margin:18px 0px 0 0px;}
 dl dt {}
-dl dd span { color:#fff;}
+dl dd span { color:#000;}
 dl dd {}
 dl dd a {}
 dl dd a:hover {}

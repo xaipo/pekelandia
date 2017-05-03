@@ -54,7 +54,9 @@
   <div class="main">
   <!--==============================header=================================-->
     <header>
-        <h1><a href="index.html"><img src="images/PKlogo.png" alt=""></a></h1>
+        
+         <h1><a href="index.html"><img src="images/PKlogo.png" alt=""></a></h1>
+        
         <nav>  
             <div id="slide">        
                 <div class="slider">
@@ -88,11 +90,11 @@
            
             <br>
             <br>
-           <h2 class="top-1 p2">Noticias</h2>
+           <h2 class="top-1 p2 clr-10">Noticias</h2>
            <div >
                       <div ng-repeat="x in listNoticias">
 
-                    <p class="text-1 p3"> {{x.FECHA_NOTICIA}} | {{x.TITULO}}</p>
+                    <p class="text-4 p3"><strong> {{x.FECHA_NOTICIA}} | {{x.TITULO}}</strong></p>
                     <p>{{x.RESUMEN}}<a ng-click="ver_mas(x)" class="link" role="button" >Leer mas...</a></p> 
                     
 
@@ -105,14 +107,17 @@
 
 
           <div class="grid_8">
-            <div class="pad-1">
-                <h2 class="p2">Bienvenidos a Pekelandia</h2>
-                <p class="text-1" style="text-align: justify">El Centro de Educación Inicial PEKELANDIA tiene como objetivo lograr el desarrollo integral de los niños y niñas desde los 18 meses a 5 años de edad, a través de una educación temprana inclusiva, de calidad y con equidad, con enfoque de derechos, respetando la diversidad, el ritmo natural de crecimiento y aprendizaje, fortaleciendo valores fundamentales y la corresponsabilidad familiar y social en el proceso de formación.</p>
+            <div class="block-2-shadow" class="block-1" class="block-3-shadow">
+            <div class="pad-1"  >
+                <h2 class='clr-9 p4'>Bienvenidos a Pekelandia</h2>
+                <p class="text-3" style="text-align: justify"><strong>El Centro de Educación Inicial PEKELANDIA tiene como objetivo lograr el desarrollo integral de los niños y niñas desde los 18 meses a 5 años de edad, a través de una educación temprana inclusiva, de calidad y con equidad, con enfoque de derechos, respetando la diversidad, el ritmo natural de crecimiento y aprendizaje, fortaleciendo valores fundamentales y la corresponsabilidad familiar y social en el proceso de formación.</strong></p>
             </div> 
+        </div>
+        <br>
             <div class="block-1">
                 <div id="formu" class="block-1-shadow"  ng-view="">
                 
-              
+                    
                 
                 </div>
             </div>

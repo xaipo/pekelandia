@@ -20,30 +20,24 @@ $db_connection = mysql_connect($db_host, $db_user, $db_password);
 	
 //---------------Select comprobar si el usuario ya esta registrado
 
-	$sql= "SELECT * FROM `ESTUDIANTES` WHERE `CEDULA` = '$cedula'";
+	$sql= "SELECT * FROM `ESTUDIANTES` WHERE `CEDULA` = '0604262956'";
 	mysql_select_db($db_name, $db_connection);
-	$retry_value = mysql_query($sql, $db_connection);
-	$num = mysql_num_rows($retry_value);
-	if ($num>0)
+	$result = mysql_query($sql, $db_connection);
+	$num = mysql_num_rows($result);
+
+	$arr = array();
+	if ($num >= 0 )
 	{
 		
+		$row = mysql_fetch_assoc($result);
 		
-		echo "true"; //lo que se envia de respuesta al ajax de javascript
 
-		//echo '<script type="text/javascript">$("#resultado").html("<div style = background:green >Acceso correcto </div>");</script>';
-
-	  
-	}else
-	{
-		
-		echo "false";
 
 	}
 
-	
-
-
-mysql_close($db_connection);
+# JSON-encode the response
+	echo $json_response = json_encode($row);
+    mysql_close($db_connection);
 
 
 
