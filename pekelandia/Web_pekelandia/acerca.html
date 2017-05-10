@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pekelandia-Acerca</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/grid_12.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
+    <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700' rel='stylesheet' type='text/css'>
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/tms-0.4.1.js"></script>
+    <script>
+		$(document).ready(function(){				   	
+			$('.slider')._TMS({
+				show:0,
+				pauseOnHover:true,
+				prevBu:'.prev',
+				nextBu:'.next',
+				playBu:false,
+				duration:800,
+				preset:'fade',
+				pagination:true,
+				pagNums:false,
+				slideshow:7000,
+				numStatus:false,
+				banners:false,
+				waitBannerAnimation:false,
+				progressBar:false
+			})		
+		});
+	</script>
+     <script src="angular-1.4.6/angular.js"></script>
+     <script src="angular-1.4.6/angular-route.js"></script>
+     
+     <script src="angular-1.4.6/ngStorage.min.js"></script>
+    <script src="angular-1.4.6/angular-local-storage.js"></script>
+    <script src="js/myApp.js"></script>
+	<!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6count
+           down.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+   		<script type="text/javascript" src="js/html5.js"></script>
+    	<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+	<![endif]-->
+</head>
+<body ng-app="myApp" ng-controller="noticiasController" ng-init="ini_acerca()">
+  <div class="main">
+  <!--==============================header=================================-->
+    <header>
+         <!-- <h1><a href="index.html"><img src="images/PKlogo.png" alt=""></a></h1>-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+         <br>
+        <br>
+        <br>
+        <br>
+        <nav>  
+            <div id="slide">        
+                <div class="slider">
+                    <ul class="items">
+                
+                        <li><img src="images/slider-2.jpg" alt="" /></li>
+                        <li><img src="images/peke4.jpg" alt="" /></li>
+                        <li><img src="images/peke5.jpg" alt="" /></li>
+                        <li><img src="images/peke6.jpg" alt="" /></li>
+                    </ul>
+                </div>  
+                <a href="#" class="prev"></a><a href="#" class="next"></a>
+            </div>
+            <ul class="menu">
+                <li class="current"><a href="index.html" class="clr-1">Inicio</a></li>
+                <li><a href="acerca.html#/vision" class="clr-2">Acerca</a></li>
+                <li><a href="calendario.html" class="clr-3">Calendario</a></li>
+                <li><a href="matricula.html" class="clr-4">Matricula</a></li>
+                <li><a href="contactos.html" class="clr-5">Contacto</a></li>
+            </ul>
+         </nav>
+    </header>   
+  <!--==============================content================================-->
+    <section id="content">
+        <div class="container_12">	
+          <div class="grid_4 bot-1">
+            <h2 class="top-6 p2 clr-6">Perfiles</h2>
+            <p>Los rasgos planteados y proyectados por el CEI Pekelandia se encuentra basados en el referente curricular para la Educación Inicial, enlazándose también con las consideraciones generales de las necesidades e intereses de la comunidad educativa.
+            <p class="text-2 top-2 p3">Grupo 1:</p>
+            <p>INICIAL 1(niños de 18 meses a 3 años)</p>
+            <p class="text-2 top-2 p3">Grupo 2:</p>
+            <p>INICIAL 2 (niños de 3 a 4 años</p>
+            <p class="text-2 top-2 p3">Grupo 3:</p>
+            <p>INICIAL 2 (niños de 4 a 5 años)</p>
+            <a ng-click="ver_perfiles()" class="link">Leer mas...</a>
+          </div>
+          <div class="grid_8">
+            <div class="block-1 top-5">
+            	<div class="block-1-shadow" >
+                <div id="conte" ng-view="">
+                
+                    
+
+                    </div>  
+                    
+
+                    <div class="lists">
+                    	<ul class="list-2" class="link-2">
+                        	<li><a ng-click="ver_vision()">Misión y Visión</a></li>
+                            <li><a ng-click="ver_principios()">Principios</a></li>
+                            <li><a ng-click="ver_perfiles()">Perfiles</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                        <ul class="list-2 last" class="link-2">
+                            <li><a ng-click="ver_perfiles_doc()">Perfil del personal docente y administrativo del CEI Pekelandia</a></li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                    </div>
+                </div>
+            </div>
+            <!--==============================footer=================================-->
+           <footer>
+                <p>© 2017 CEI Pekelandia</p>
+                <p>Visitanos en facebook.com <a class="link" href="https://www.facebook.com/ceipekelandia?fref=ts" target="_blank" rel="nofollow">Pekelandia</a></p>
+            </footer> 	  
+          </div>
+          <div class="clear"></div>
+        </div>
+    </section>    
+   </div>      
+</body>
+</html>
