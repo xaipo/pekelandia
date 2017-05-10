@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 
 
 app.use('/api',require('./Routers/apiUsuarios'));
-app.use('/api',require('./Routers/apiUsuarios'));
+
 
 
 // <editor-fold defaultstate="collapsed" desc="Server Run">

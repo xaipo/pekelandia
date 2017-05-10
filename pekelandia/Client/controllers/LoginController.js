@@ -9,85 +9,125 @@
 
 app.controller('LoginController', ['$scope', '$http', '$location','myProvider','$localStorage',  function ($scope,$http,$location,myProvider,$localStorage) {
 
-    console.log(myProvider.getUser());
-    $scope.mensaje = "";
-    $scope.usuario = "";
-    $scope.password = "";
-    $scope.usuario1;
-    //$rootScope.usuarioLogin;
-    $scope.login = function () {
-        $scope.mensaje = "procesando";
-        var url= myProvider.getUser()+'?nombre_usuario='+$scope.usuario;
-        console.log(url);
+   // console.log(myProvider.getUser());
 
-        $http({
-            method: 'GET',
-            url: url,
-            headers: {
-                'Content-Type': 'application/json'
-            }
+    $scope.estadoInicio=function(){
 
-        }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
-            //  console.log(response.data[0].nombre_usuario);
-            //  console.log(response.data);
-            $scope.usuario1= angular.fromJson(response.data[0]);
-            //console.log($scope.usuario1);
-            // console.log($scope.usuario1.nombre_usuario);
-            // console.log($scope.usuario1.contrasena);
-            // console.log($scope.usuario1._id);
-            if(response.data.length>0){
-                if($scope.usuario1.nombre_usuario==$scope.usuario && $scope.usuario1.contrasena==$scope.password ){
-                    console.log($scope.usuario1.contrasena);
-                    $scope.mensaje="Bienvenido "+response.data[0].nombre_usuario.toString();
-                    // $rootScope.usuarioLogin=$scope.usuario1;
-                    //$localStorage.usr=$scope.usuario1;
-                    switch(response.data[0].tipo_usuario) {
-                        case 1:
-                            console.log($scope.usuario1);
-                            window.localStorage.setItem("usuario", JSON.stringify($scope.usuario1));
-                            window.location ='/tesisSaludOcupacional/Client/Administrator/indexAdmin.html';
+        $scope.us = JSON.parse(window.localStorage.getItem('se'));
 
-                            break;
-                        case 2:
-                            window.localStorage.setItem("usuario", JSON.stringify($scope.usuario1));
-                            window.location ='/tesisSaludOcupacional/Client/SysAdmin/indexAdmin.html';
-                            break;
-                        case 3:
-                            window.localStorage.setItem("usuario", JSON.stringify($scope.usuario1));
-                            window.location ='/tesisSaludOcupacional/Client/Administrator/CieUser/ConfiguracionCIe10.html';
-                            break;
-                        default:
+        if($scope.us!=null){
+            // window.location ='./error.html';
 
-                            alert('El tipo de usuario no tiene permiso para ningun sistema')
-                    }
-
-                    //  console.log($rootScope.usuarioLogin);
-                    //   $location.replace();
+        }
+        //   console.log($scope.us);
+    }
 
 
-                }else{
+    $scope.user={
+        'name':'',
+        'pass':''
+    }
 
-                    $scope.mensaje="Revise su usuario y password";
+    $scope.token='';
+
+    $scope.login=function(){
+
+     //   console.log('entrar1');
+//console.log($scope.user);
+       // var ss= Date();
+        //var vec= ss.split(' '
+
+
+
+
+        if($scope.user.name!=undefined && $scope.user.name!=''&&$scope.user.pass!=undefined && $scope.user.pass!='')    {
+
+            //console.log($scope.user);
+
+            $scope.user.pass=SHA1($scope.user.pass);
+            console.log($scope.user.pass);
+//console.log($scope.user.pass);
+
+            $scope.user.password=
+                $scope.us = JSON.parse(window.localStorage.getItem('se'));
+            $http({
+                method: 'POST',
+                url: myProvider.getLogin(),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: {
+
+                    user: $scope.user.name,
+                    password: $scope.user.pass
+
                 }
 
-            }else{
 
-                $scope.mensaje="Revise su usuario y password";
-                alert('Revise su usuario y password');
+            }).then(function successCallback(response) {
+                console.log(response.data);
 
-            }
-            console.log(response);
+                if(response.data.length==0){
 
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            Console.log(response);
-            $scope.mesaje=response.mensaje;
+                    alert('Error al ingresar');
+                }else{
+                    var resp = {
 
-        });
-    };
+                        name:response.data[0].USER,
+                        _id:response.data[0].CODIGO,
+                       // tipo:response.data.value.tipo
+                    }
+                    //console.log(response.data.value);
+                    //console.log(resp);
+                    var obj= response.data[0]
+                    //console.log(obj.tk);
+                    console.log(obj);
+
+
+                            //window.localStorage.setItem("se", JSON.stringify(obj.tk));
+                            window.localStorage.setItem("usuario", JSON.stringify(obj));
+                           window.location ='./indexAdmin.html';
+
+
+                    /*window.localStorage.setItem("se", JSON.stringify(obj.value.tk));
+                     window.localStorage.setItem("usuario", JSON.stringify(resp));
+                     window.location ='./index.html';*/
+                }
+
+
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                // console.log(response);
+                //$scope.mesaje = response.mensaje;
+                alert('error al realizar Ingreso');
+
+            });
+        }else{
+
+            alert('comuniquese con el amdministrador del sistema');
+        }
+
+
+    }
+
+
+
+    $scope.logout=function(){
+
+        $scope.us = JSON.parse(window.localStorage.getItem('usuario'));
+       // console.log($scope.us);
+
+            localStorage.removeItem('usuario');
+            window.location ='index.html';
+
+
+
+
+
+
+
+    }
 
     //  console.log($rootScope.usuarioLogin);
 

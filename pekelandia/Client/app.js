@@ -9,8 +9,8 @@ var app = angular.module("myApp", ['ngStorage','ngRoute'])
 
 function ApiUrl(){
 
-    this.getUser=function(){
-        return 'http://localhost:3002/api/usuarios';
+    this.getLogin=function(){
+        return 'http://localhost:3002/api/login';
     }
     this.getHistoriaClinica=function(){
         return 'http://localhost:3002/api/login';

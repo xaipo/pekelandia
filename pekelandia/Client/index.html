@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
     <link rel="stylesheet" type="text/css" href="css/overrideStyles.css" id="pageshee1"/>
     <!-----angular-->
-
+    <script src="./js/SH.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular/angular-route.min.js"></script>
     <script src="js/ngStorage.min.js"></script>
@@ -58,10 +58,10 @@
         <form name="miFormulario" ng-controller="LoginController">
             <h2>INGRESO AL SISTEMA</h2>
             <p data-ng-bind="mensaje"></p>
-            <h3>Nombre de usuario:</h3> <input class="form-control" type="text" ng-model="usuario" name="nombre" required ><br/>
-            <h3> Password:</h3> <input class="form-control" type="password" ng-model="password" name="password" required ><br/><br/>
+            <h3>Nombre de usuario:</h3> <input class="form-control" type="text" ng-model="user.name" name="nombre" required ><br/>
+            <h3> Password:</h3> <input class="form-control" type="password" ng-model="user.pass" name="password" required ><br/><br/>
             <input class=" btn-primary form-control" type="submit" ng-click="login()" value="Ingresar" />
-            <input class=" btn-primary form-control" type="Submit" ng-click="" value="Cancelar" />
+
             <p></p>
         </form>
     </div></center>

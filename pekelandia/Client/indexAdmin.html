@@ -6,7 +6,6 @@
     <title>DashBoard</title>
     <!-----estilos -->
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" id="pagesheet"/>
-
     <link rel="stylesheet" type="text/css" href="css/overrideStyles.css" id="pageshee1"/>
     <!-----angular-->
 
@@ -14,11 +13,11 @@
     <script src="node_modules/angular/angular-route.js"></script>
     <script src="js/ngStorage.min.js"></script>
     <script src="app.js"></script>
-
+    <script src="controllers/LoginController.js"></script>
 
 </head>
 
-<body ng-app="myApp" >
+<body ng-app="myApp" ng-controller="LoginController">
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -51,7 +50,7 @@
                     <li><a href="#">Page 3</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out" style="color: white"></span> LogOut</a></li>
+                    <li ng-click="logout()"><a href="#"><span class="glyphicon glyphicon-log-out" style="color: white"></span> LogOut</a></li>
                 </ul>
             </div>
         </div>
