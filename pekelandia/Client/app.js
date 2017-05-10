@@ -4,7 +4,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app = angular.module("myApp", ['ngStorage','ngRoute','ngAnimate', 'ngTouch', 'ui.bootstrap'])
+var app = angular.module("myApp", ['ngStorage','ngRoute'])
 
 
 function ApiUrl(){
