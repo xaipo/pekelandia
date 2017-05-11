@@ -12,10 +12,12 @@ function ApiUrl(){
     this.getLogin=function(){
         return 'http://localhost:3002/api/login';
     }
-    this.getHistoriaClinica=function(){
-        return 'http://localhost:3002/api/login';
+    this.getSaveUsuario=function(){
+        return 'http://localhost:3002/api/savUsuario';
     }
-
+    this.getSaveUsuario=function(){
+        return 'http://localhost:3002/api/savUsuario';
+    }
 }
 
 app.factory("myProvider",function(){
