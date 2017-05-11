@@ -29,8 +29,11 @@ app.get('/', function (req, res) {
 
 app.use('/api',require('./Routers/apiUsuarios'));
 app.use('/api',require('./Routers/routerTestCedulas'));
-
-
+app.use('/api',require('./Routers/apiJornada'));
+app.use('/api',require('./Routers/apiTipoPadres'));
+app.use('/api',require('./Routers/apiNivel'));
+app.use('/api',require('./Routers/apiPadres'));
+app.use('/api',require('./Routers/apiRefrigerio'));
 // <editor-fold defaultstate="collapsed" desc="Server Run">
 app.listen(3002);
 console.log("servidor ejecutando en el puerto 3002");
